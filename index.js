@@ -7,7 +7,16 @@ const answer = await inquirer.prompt([
         message: "Select operator",
         type: "list",
         name: "operator",
-        choices: ["Addition", "Subtraction", "Multiplication", "Division", "Percentage", "Square", "Modulus"],
+        choices: [
+            "Addition",
+            "Subtraction",
+            "Multiplication",
+            "Division",
+            "Percentage",
+            "Square",
+            "Modulus",
+            "calculate BMI",
+        ],
     },
 ]);
 // conditional statement:
@@ -24,7 +33,7 @@ if (answer.operator === "Division") {
     console.log(`Your value is ${answer.firstNumber / answer.secondNumber}`);
 }
 if (answer.operator === "Percentage") {
-    console.log(`Your value is ${answer.firstNumber / answer.secondNumber * 100}`);
+    console.log(`Your value is ${(answer.firstNumber / answer.secondNumber) * 100}`);
 }
 if (answer.operator === "Square") {
     console.log(`Your value is ${answer.firstNumber ** answer.secondNumber}`);
@@ -32,6 +41,9 @@ if (answer.operator === "Square") {
 if (answer.operator === "Modulus") {
     console.log(`Your value is ${answer.firstNumber % answer.secondNumber}`);
 }
-if (answer.operator === "") {
+if (answer.operator === "calculate BMI") {
+    console.log(`Your value is ${answer.firstNumber / (answer.secondNumber * answer.secondNumber)}`);
+}
+else {
     console.log("Please select one of operator");
 }
